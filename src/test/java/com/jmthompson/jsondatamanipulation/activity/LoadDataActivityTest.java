@@ -18,7 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LoadDataActivityTest {
 
     private LoadDataActivity activity;
-    public static final TransferAppComponent component = DaggerTransferAppComponent.create();
+//    public static final TransferAppComponent component = null; // Comment this line out after the project builds
+    public static final TransferAppComponent component = DaggerTransferAppComponent.create(); // Uncomment this after the building the project successfully
 
     @BeforeEach
     @Inject
