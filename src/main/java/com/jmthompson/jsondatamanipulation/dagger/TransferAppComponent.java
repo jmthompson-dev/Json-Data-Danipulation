@@ -1,4 +1,4 @@
-package com.jmthompson.jsondatamanipulation.dependencies;
+package com.jmthompson.jsondatamanipulation.dagger;
 
 import com.jmthompson.jsondatamanipulation.activity.LoadDataActivity;
 import com.jmthompson.jsondatamanipulation.activity.TransferDataActivity;

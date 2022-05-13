@@ -1,7 +1,7 @@
 package com.jmthompson.jsondatamanipulation;
 
-import com.jmthompson.jsondatamanipulation.dependencies.DaggerTransferAppComponent;
-import com.jmthompson.jsondatamanipulation.dependencies.TransferAppComponent;
+import com.jmthompson.jsondatamanipulation.dagger.DaggerTransferAppComponent;
+import com.jmthompson.jsondatamanipulation.dagger.TransferAppComponent;
 import com.jmthompson.jsondatamanipulation.model.Data;
 import com.jmthompson.jsondatamanipulation.model.request.LoadDataRequest;
 import com.jmthompson.jsondatamanipulation.model.request.TransferDataRequest;

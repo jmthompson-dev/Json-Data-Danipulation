@@ -24,7 +24,13 @@ public class LoadDataActivity {
     }
 
     public LoadDataResponse execute(LoadDataRequest loadDataRequest) throws IOException {
-        List<Data> dataList = mapper.readValue(new File(loadDataRequest.getPath()), new TypeReference<List<Data>>(){});
+        List<Data> dataList;
+        try {
+            dataList = mapper.readValue(new File(loadDataRequest.getPath()), new TypeReference<List<Data>>() {
+            });
+        } catch (Exception e) {
+            throw new IOException(String.format("404 ERROR! Json file is not available.\n%s", e.getMessage()));
+        }
         return LoadDataResponse.builder().withDataList(dataList).build();
     }
 }

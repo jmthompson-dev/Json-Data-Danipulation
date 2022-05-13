@@ -36,6 +36,7 @@ javafx {
 dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testImplementation 'org.mockito:mockito-core:4.5.1'
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.12.215'
     implementation 'com.google.dagger:dagger:2.41'

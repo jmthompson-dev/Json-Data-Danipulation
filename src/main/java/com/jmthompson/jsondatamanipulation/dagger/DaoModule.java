@@ -1,4 +1,4 @@
-package com.jmthompson.jsondatamanipulation.dependencies;
+package com.jmthompson.jsondatamanipulation.dagger;
 
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.regions.Regions;
