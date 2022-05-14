@@ -6,6 +6,7 @@ import com.jmthompson.jsondatamanipulation.model.request.TransferDataRequest;
 import com.jmthompson.jsondatamanipulation.model.response.TransferDataResponse;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
@@ -23,18 +24,20 @@ public class TransferDataActivity {
     }
 
     public TransferDataResponse execute(TransferDataRequest request) {
-        List<Data> notSaved = Collections.emptyList();
+        List<Data> notSaved = new ArrayList<>();
         ListIterator<Data> dataIterator = request.getDataList().listIterator();
         while (dataIterator.hasNext()) {
             Data currentData = dataIterator.next();
             try {
                 dataDao.create(currentData);
             } catch (UnsupportedOperationException e) {
-                System.out.println("Error: Item not saved to database!!!");
+                System.out.println("Error: Item not saved to database." + e.getMessage());
                 notSaved.add(currentData);
             }
         }
-
-        return TransferDataResponse.builder().withDataList(notSaved).build();
+        return TransferDataResponse
+                .builder()
+                .withDataList(notSaved)
+                .build();
     }
 }

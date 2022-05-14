@@ -12,51 +12,50 @@ import java.util.Objects;
 public class Data {
 
     @JsonProperty("order_id")
-    public String orderId;
-
-    @DynamoDBHashKey(attributeName = "order_id")
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
+    public Integer orderId;
 
     @JsonProperty("date_time")
     public String dateTime;
+
+    @JsonProperty("total")
+    private String orderTotal;
+
+    @JsonProperty("department")
+    public String department;
+
+    public Data() {
+    }
+
+    public Data(Integer orderId, String dateTime, String orderTotal, String department) {
+        this.orderId = orderId;
+        this.dateTime = dateTime;
+        this.orderTotal = orderTotal;
+        this.department = department;
+    }
+
+    @DynamoDBHashKey(attributeName = "order_id")
+    public Integer getOrderId() {
+        return orderId;
+    }
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
 
     @DynamoDBRangeKey(attributeName = "date_time")
     public String getDateTime() {
         return dateTime;
     }
-
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 
-    @JsonProperty("total")
-    private String orderTotal;
 
     @DynamoDBAttribute(attributeName = "total")
     public String getOrderTotal() {
         return orderTotal;
     }
-
     public void setOrderTotal(String orderTotal) {
         this.orderTotal = orderTotal;
-    }
-
-    @JsonProperty("department")
-    public String department;
-
-    @DynamoDBAttribute(attributeName = "department")
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     @Override
@@ -71,6 +70,16 @@ public class Data {
     public int hashCode() {
         return Objects.hash(getOrderId(), getDateTime(), getOrderTotal(), getDepartment());
     }
+
+    @DynamoDBAttribute(attributeName = "department")
+    public String getDepartment() {
+        return department;
+    }
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+
 
     @Override
     public String toString() {

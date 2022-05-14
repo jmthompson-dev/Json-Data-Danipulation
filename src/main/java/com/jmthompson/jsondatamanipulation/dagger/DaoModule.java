@@ -14,6 +14,7 @@ import javax.inject.Singleton;
 
 @Module
 public class DaoModule {
+
     @Provides
     public ObjectMapper provideObjectMapper() {
         return new ObjectMapper();
